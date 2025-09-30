@@ -1,3 +1,4 @@
+// Menu responsivo
 
 const menuHamburguer = document.getElementById('meuToggle');
 const navLista = document.getElementById('navLista');
@@ -7,6 +8,8 @@ menuHamburguer.addEventListener('click', () => {
     const menuEstaVisivel = navLista.classList.contains('show');
     menuHamburguer.setAttribute('aria-expanded', menuEstaVisivel);
 });
+
+// Fecha menu ao clicar em um link
 
 navLista.addEventListener('click', (e) => {
     if (e.target.tagName === 'A' && navLista.classList.contains('show')) {
@@ -24,20 +27,3 @@ navLista.addEventListener('click', (e) => {
         }
     }
 });
-
-const header = document.getElementById('menu');
-let menuEstaComSombra = false;
-
-function onScroll() {
-    const scrollAtual = window.scrollY;
-    if (!menuEstaComSombra && scrollAtual > 20) {
-        header.classList.add('scrolled');
-        menuEstaComSombra = true;
-    } 
-    else if (menuEstaComSombra && scrollAtual <= 10) {
-        header.classList.remove('scrolled');
-        menuEstaComSombra = false;
-    }
-}
-window.addEventListener('scroll', onScroll, { passive: true });
-onScroll();
